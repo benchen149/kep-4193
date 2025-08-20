@@ -1,0 +1,19 @@
+# node-token-test.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-token-test
+  namespace: t4193
+spec:
+  containers:
+  - name: tester
+    image: curlimages/curl
+    command: ["sleep", "3600"]
+    volumeMounts:
+    - name: token-vol
+      mountPath: /token
+  volumes:
+  - name: token-vol
+    configMap:
+      name: token-cm
+
