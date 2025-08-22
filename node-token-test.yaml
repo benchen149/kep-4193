@@ -5,6 +5,7 @@ metadata:
   name: node-token-test
   namespace: t4193
 spec:
+  nodeName: kep-4193-worker
   containers:
   - name: tester
     image: curlimages/curl
@@ -16,4 +17,3 @@ spec:
   - name: token-vol
     configMap:
       name: token-cm
-

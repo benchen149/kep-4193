@@ -1,5 +1,14 @@
+# kind-config.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
+name: kep-4193
 nodes:
-- role: control-plane
-- role: worker
+  - role: control-plane
+    kubeadmConfigPatches:
+      - |
+        kind: ClusterConfiguration
+        apiServer:
+          extraArgs:
+            feature-gates: "ServiceAccountTokenNodeBindingValidation=true"
+  - role: worker
+
