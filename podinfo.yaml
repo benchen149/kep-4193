@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podinfo
+  namespace: t4193
+spec:
+  serviceAccountName: demo
+  nodeName: kep-4193-control-plane
+  containers:
+  - name: podinfo
+    image: registry.k8s.io/pause:3.9
